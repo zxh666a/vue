@@ -3,6 +3,7 @@
     <!--header-->
     <mt-header fixed title="主页"></mt-header>
     <!--router-view-->
+    <router-view></router-view>
     <!--tabbar-->
     <nav class="mui-bar mui-bar-tab">
       <router-link class="mui-tab-item " to="/home">
