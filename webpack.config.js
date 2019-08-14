@@ -30,6 +30,7 @@ module.exports = {
         rules: [ // 所有第三方模块的 匹配规则
           { test: /\.css$/, use: ['style-loader', 'css-loader'] },
           { test: /\.scss$/, use: ['style-loader', 'css-loader','sass-loader'] },
+          { test: /\.(png|jpg|jpeg)$/, use: 'url-loader' },
           { test: /\.(ttf|eot|woff|woff2|svg)$/, use: 'url-loader' },
           {test:/\.vue$/,use:'vue-loader'},
           {

@@ -5,6 +5,7 @@ import search from './components/tabbar/search.vue'
 import shop from './components/tabbar/shop.vue'
 var router = new VueRouter({
     routes:[
+        {path:'/',redirect:'/home'},
         {path:'/home',component:home},
         {path:'/member',component:member},
         {path:'/search',component:search},
