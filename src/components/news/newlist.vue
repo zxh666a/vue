@@ -1,66 +1,58 @@
 <template>
   <div>
     <ul class="mui-table-view">
-      <li class="mui-table-view-cell mui-media">
-        <a href="javascript:;">
+      <li class="mui-table-view-cell mui-media" v-for='item in newslist' :key="item.id">
+        <router-link :to="'/home/newinfo/' + item.id">
           <img
             class="mui-media-object mui-pull-left"
-            src="http://b-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"
+            :src="item.img_url"
           />
           <div class="mui-media-body">
-            <h1>幸福</h1>
+            <h1>{{item.title}}}}</h1>
             <p class="mui-ellipsis">
-              <span>发表时间：2013-12-12</span>
-              <span>点击：0</span>
+              <span>发表时间：{{item.add_time | dateFormat}}</span>
+              <span>点击：{{item.click}}次</span>
             </p>
           </div>
-        </a>
-      </li>
-      <li class="mui-table-view-cell mui-media">
-        <a href="javascript:;">
-          <img
-            class="mui-media-object mui-pull-left"
-            src="http://b-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"
-          />
-          <div class="mui-media-body">
-            <h1>幸福</h1>
-            <p class="mui-ellipsis">
-              <span>发表时间：2012年-12-12</span>
-              <span>点击：0</span>
-            </p>
-          </div>
-        </a>
-      </li>
-      <li class="mui-table-view-cell mui-media">
-        <a href="javascript:;">
-          <img
-            class="mui-media-object mui-pull-left"
-            src="http://b-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"
-          />
-          <div class="mui-media-body">
-            <h1>幸福</h1>
-            <p class="mui-ellipsis">
-              <span>发表时间：2012年-12-12</span>
-              <span>点击：0</span>
-            </p>
-          </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
 </template>
 <script>
+import { Toast } from "mint-ui";
+export default {
+  data() {
+    return {
+      newslist: []
+    };
+  },
+  created() {
+    this.getnewslist();
+  },
+  methods: {
+    getnewslist() {
+      this.$http.get("api/getnewslist").then(result => {
+        if (result.body.status === 0) {
+          this.newslist = result.body.message;
+        } else {
+          Toast("获取失败");
+        }
+      });
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
-.mui-table-view{
-    h1{
-        font-size: 14px;
-    }
-    .mui-ellipsis{
-        font-size: 12px;
-        color: #226aff;
-        display: flex;
-        justify-content: space-between;
-    }
+.mui-table-view {
+  h1 {
+    font-size: 14px;
+  }
+  .mui-ellipsis {
+    font-size: 12px;
+    color: #226aff;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>

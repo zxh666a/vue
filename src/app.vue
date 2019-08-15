@@ -28,7 +28,6 @@
       </router-link>
     </nav>
 
-    <h1>app组件</h1>
   </div>
 </template>
 <script>
@@ -36,6 +35,7 @@
 <style lang="scss" scoped>
 .app-container {
   padding-top: 40px;
+  padding-bottom: 50px;
   overflow-x: hidden
 }
 
