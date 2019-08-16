@@ -21,6 +21,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-component": "^1.1.1",
+    "babel-plugin-transform-remove-strict-mode": "^0.0.2",
     "babel-preset-env": "^1.7.0",
     "bootstrap": "^4.3.1",
     "css-loader": "^3.2.0",
@@ -52,7 +53,10 @@
           }
         ]
       ]
-    ]
+    ],
+    "ignore": [
+      "src/lib/mui/js/mui.min.js"
+      ]
   },
   "description": ""
 }
