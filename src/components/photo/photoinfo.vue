@@ -5,7 +5,7 @@
       <span>发表时间:{{photoinfo.add_time | dateFormat}}</span>
       <span>点击次数：{{photoinfo.click}}次</span>
     </p>
-    <hr />
+    <hr>
 
     <!-- 缩略图区域 -->
     <vue-preview :slides="list" ></vue-preview>
@@ -51,14 +51,14 @@ export default {
   methods: {
     // getphotoinfo(){
     //     this.$http.get('api/getimageInfo/' + this.id).then(result =>{
-    //         if(result.body.ststus === 0){
+    //         if(result.body.status === 0){
     //             this.photoinfo = result.body.message[0]
     //         }
     //     })
-    // }
+    // },
     getthumbs() {
       this.$http.get("api/getthumimages/" + this.id).then(result => {
-        if (result.body.ststus === 0) {
+        if (result.body.status === 0) {
          result.body.message.forEach(item =>{
              item.w = 600
              item.h = 400;

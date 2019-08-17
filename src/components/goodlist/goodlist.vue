@@ -1,62 +1,50 @@
 <template>
   <div class="goods-list">
-    <div class="goods-item">
+    <router-link class="goods-item" v-for="item in goodslist" :key="item.id" :to="'/home/goodsinfo'+ item.id">
       <img
-        src="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=3d9fc10fa3014c08063b2ea53a7a025b/359b033b5bb5c9eac1754f45df39b6003bf3b396.jpg"
+        :src="item.img_url"
         alt
       />
-      <h1 class="title">xiaomi</h1>
+      <h1 class="title">{{item.title}}</h1>
       <div class="info">
         <p class="price">
-          <span class="now">2199</span>
-          <span class="old">2399</span>
+          <span class="now">{{item.sell_price}}</span>
+          <span class="old">{{item.market_price}}</span>
         </p>
         <p class="sell">
           <span>热卖中</span>
-          <span>剩余：50件</span>
+          <span>剩余：{{item.stock_quantity}}件</span>
         </p>
       </div>
-    </div>
-
-    <div class="goods-item">
-      <img
-        src="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=3d9fc10fa3014c08063b2ea53a7a025b/359b033b5bb5c9eac1754f45df39b6003bf3b396.jpg"
-        alt
-      />
-      <h1 class="title">xiaomi</h1>
-      <div class="info">
-        <p class="price">
-          <span class="now">2199</span>
-          <span class="old">2399</span>
-        </p>
-        <p class="sell">
-          <span>热卖中</span>
-          <span>剩余：50件</span>
-        </p>
-      </div>
-    </div>
-
-    <div class="goods-item">
-      <img
-        src="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=3d9fc10fa3014c08063b2ea53a7a025b/359b033b5bb5c9eac1754f45df39b6003bf3b396.jpg"
-        alt
-      />
-      <h1 class="title">xiaomi</h1>
-      <div class="info">
-        <p class="price">
-          <span class="now">2199</span>
-          <span class="old">2399</span>
-        </p>
-        <p class="sell">
-          <span>热卖中</span>
-          <span>剩余：50件</span>
-        </p>
-      </div>
-    </div>
+    </router-link>
+    <mt-button type="danger" size="large" @click="getmore">加载更多</mt-button>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data(){
+    return {
+      pageindex:1,
+      goodslist:[]
+    }
+  },
+  created() {
+    this.getgoodslist()
+  },
+  methods:{
+    getgoodslist(){
+      this.$http.get('api/getgoods?pageindex='+ this.pageindex).then(result=>{
+        if(result.body.status === 0){
+          this.goodslist = this.goodslist.concat(result.body.message);
+        }
+      })
+    },
+    getmore(){
+      this.pageindex++;
+      this.getgoodslist();
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
 .goods-list{
