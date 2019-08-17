@@ -15,6 +15,8 @@ import app from './app.vue'
 // Vue.use(Lazyload)
 import MintUI from 'mint-ui'
 Vue.use(MintUI)
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 import 'mint-ui/lib/style.css'
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
