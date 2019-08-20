@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <!--header-->
-    <mt-header fixed title="主页">
+    <mt-header fixed title="主页" class="header">
       <span slot="left" @click="goback" v-show="flag">
         <mt-button icon="back">返回</mt-button>
       </span>
@@ -85,33 +85,44 @@ export default {
   transition: all 0.5s ease;
 }
 
-.mui-bar-tab .mui-tab-item-zxh .mui-active {
-  color: #007aff;
-}
+// .mui-bar-tab .mui-tab-item-zxh .mui-active {
+//   color: #007aff;
+// }
 
-.mui-bar-tab .mui-tab-item-zxh {
-  display: yable-cell;
-  overflow: hidden;
-  width: 1%;
-  text-align: center;
-  vertical-align: middle;
-  white-space: no wrap;
-  text-overflow: ellipsis;
-  color: #929292;
-}
+// .mui-bar-tab .mui-tab-item-zxh {
+//   overflow: hidden;
+//   width: 1%;
+//   text-align: center;
+//   vertical-align: middle;
+//   white-space: no wrap;
+//   text-overflow: ellipsis;
+//   color: #929292;
+// }
 
-.mui-bar-tab .mui-tab-item-zxh .mui-icon {
-  top: 3px;
-  width: 24px;
-  height: 24px;
-  padding-top: 0;
-  padding-bottom: 0;
-}
+// .mui-bar-tab .mui-tab-item-zxh .mui-icon {
+//   top: 3px;
+//   width: 24px;
+//   height: 24px;
+//   padding-top: 0;
+//   padding-bottom: 0;
+// }
 
-.mui-bar-tab .mui-tab-item-zxh .mui-icon .mui-tab-label {
-  font-size: 11px;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
+// .mui-bar-tab .mui-tab-item-zxh .mui-icon .mui-tab-label {
+//   font-size: 11px;
+//   display: block;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+// }
+.mui-tab-item-zxh{
+  padding: 10px;
+  color: #9b59b6;
+  font-weight: bold;
+}
+.mui-bar {
+  background-color:#9AECDB;
+}
+.header{
+  background-color: #9AECDB;
+  color: black
 }
 </style>
