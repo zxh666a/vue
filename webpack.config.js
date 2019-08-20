@@ -17,7 +17,7 @@ module.exports = {
         port:3000,
         contentBase:"src",
         hot:true,
-        host: '192.168.0.106',
+        // host: '192.168.0.106',
     },
     plugins: [ // 配置插件的节点
         new webpack.HotModuleReplacementPlugin(), // new 一个热更新的 模块对象， 这是 启用热更新的第 3 步

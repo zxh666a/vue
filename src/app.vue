@@ -65,8 +65,9 @@ export default {
 }
 .app-container {
   padding-top: 40px;
-  padding-bottom:50px;
+  padding-bottom: 50px;
   // overflow-x: hidden;
+  overflow: hidden;
 }
 
 .v-enter {
@@ -108,23 +109,31 @@ export default {
 // }
 
 // .mui-bar-tab .mui-tab-item-zxh .mui-icon .mui-tab-label {
-//   font-size: 11px;
+//   font-size: 20px;
 //   display: block;
 //   overflow: hidden;
 //   text-overflow: ellipsis;
 // }
-.mui-tab-item-zxh{
-  padding: 10px;
+.mui-tab-item-zxh {
+  padding: 20px;
   color: #9b59b6;
   font-weight: bold;
 }
 .mui-bar {
-  background-color:#9AECDB;
+  background-color: #9aecdb;
   z-index: 99;
 }
-.header{
-  background-color: #9AECDB;
+.header {
+  background-color: #9aecdb;
   color: black;
-  
+}
+nav {
+  margin: 0 auto;
+
+  width: 100%;
+
+  border: 1px solid #ccc;
+
+  text-align: center;
 }
 </style>
