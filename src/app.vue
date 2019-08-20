@@ -61,12 +61,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mint-header {
-  z-index: 99;
+  top: 0px;
 }
 .app-container {
   padding-top: 40px;
-  padding-bottom: 50px;
-  overflow-x: hidden;
+  padding-bottom:50px;
+  // overflow-x: hidden;
 }
 
 .v-enter {
@@ -89,15 +89,15 @@ export default {
 //   color: #007aff;
 // }
 
-// .mui-bar-tab .mui-tab-item-zxh {
-//   overflow: hidden;
-//   width: 1%;
-//   text-align: center;
-//   vertical-align: middle;
-//   white-space: no wrap;
-//   text-overflow: ellipsis;
-//   color: #929292;
-// }
+.mui-bar-tab .mui-tab-item-zxh {
+  overflow: hidden;
+  width: 1%;
+  text-align: center;
+  vertical-align: middle;
+  white-space: no wrap;
+  text-overflow: ellipsis;
+  color: #929292;
+}
 
 // .mui-bar-tab .mui-tab-item-zxh .mui-icon {
 //   top: 3px;
@@ -120,9 +120,11 @@ export default {
 }
 .mui-bar {
   background-color:#9AECDB;
+  z-index: 99;
 }
 .header{
   background-color: #9AECDB;
-  color: black
+  color: black;
+  
 }
 </style>
