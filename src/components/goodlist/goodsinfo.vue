@@ -23,7 +23,7 @@
           </p>
           <p>
             购买数量：
-            <numbox @getcount = "getnum" :max="goodsinfo.stock_quantity"></numbox>
+            <numbox @getcount="getnum" :max="goodsinfo.stock_quantity"></numbox>
           </p>
           <p>
             <mt-button type="primary" size="small">立即购买</mt-button>
@@ -59,7 +59,7 @@ export default {
       lunbotu: [],
       goodsinfo: {},
       ballflag: false, // 小球隐藏和显示的标识符
-      count:1
+      count: 1
     };
   },
   created() {
@@ -92,6 +92,13 @@ export default {
     },
     addshopcar() {
       this.ballflag = !this.ballflag;
+      var goodsinfo = {
+        id: this.id,
+        count: this.count,
+        price: this.goodsinfo.sell_price,
+        selected: true
+      };
+      this.$store.commit("addTocar",goodsinfo)
     },
     beforeEnter(el) {
       el.style.transform = "translate(0,0)";
@@ -103,18 +110,19 @@ export default {
       const huibiaoposition = document
         .getElementById("huibiao")
         .getBoundingClientRect();
-        const xDist = huibiaoposition.left - ballposition.left;
-        const yDist = huibiaoposition.top - ballposition.top;
+      const xDist = huibiaoposition.left - ballposition.left;
+      const yDist = huibiaoposition.top - ballposition.top;
       el.style.transform = `translate(${xDist}px,${yDist}px)`;
       el.style.transition = "all 0.4s cubic-bezier(.4,-0.3,1,.68)";
-      done()
+      done();
     },
     afterEnter(el) {
-              this.ballflag = !this.ballflag;
+      this.ballflag = !this.ballflag;
     },
-    getnum(count){// 购物车数量变化
-    this.count = count;
-    console.log(this.count)
+    getnum(count) {
+      // 购物车数量变化
+      this.count = count;
+      console.log(this.count);
     }
   },
   components: {
